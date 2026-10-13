@@ -1,0 +1,86 @@
+/* Shared CSS: a remix of the original video-and-type layout */
+:root {
+  --white: #fff;
+  --accent: #e8b48a;
+  --muted: #e2d8cd;
+  --sans: "Inter", Arial, sans-serif;
+  --hand: "Reenie Beanie", cursive;
+  --serif: "Fraunces", Georgia, serif;
+  --gap: 5%;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #171613; color: var(--white); font-family: var(--serif); }
+a { color: inherit; text-decoration: none; }
+
+.bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.shade { position: fixed; inset: 0; background: rgba(10, 10, 9, .58); z-index: -1; }
+
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px var(--gap); border-bottom: 1px solid rgba(255,255,255,.25); }
+.site-name, .top-link, .eyebrow, footer, .lesson-nav a span, .exercise > span, .lesson-pagination { font: 10px var(--sans); letter-spacing: 1px; }
+.site-name span { display: inline-block; margin-left: 18px; color: var(--muted); }
+.top-link { white-space: nowrap; }
+.top-link:hover, footer a:hover, .lesson-pagination a:hover { color: var(--accent); }
+
+.home-hero { min-height: 68vh; display: flex; flex-direction: column; justify-content: center; padding: 45px var(--gap) 65px; }
+.eyebrow { margin: 0 0 18px; color: var(--accent); }
+h1 { margin: 0; font: 300 clamp(75px, 12vw, 150px)/.85 var(--hand); }
+h1 em { color: var(--accent); font-weight: 700; }
+.period { color: var(--accent); }
+.hero-bottom { display: flex; align-items: end; justify-content: space-between; gap: 25px; max-width: 700px; margin-top: 30px; }
+.hero-bottom p { max-width: 420px; margin: 0; color: var(--muted); font: 14px/1.7 var(--sans); }
+.round-link { display: grid; place-content: center; flex-shrink: 0; width: 95px; height: 95px; border: 1px solid var(--accent); border-radius: 50%; color: var(--white); font: 10px/1.5 var(--sans); text-align: center; }
+.round-link span { color: var(--accent); font-size: 18px; }
+.round-link:hover { background: rgba(232,180,138,.15); }
+
+.lesson-index { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; padding: 55px var(--gap) 70px; background: rgba(20,19,17,.86); }
+.index-heading h2 { margin: 0; font: 50px/.95 var(--serif); }
+.index-heading h2 em { color: var(--accent); }
+.lesson-list a { display: grid; grid-template-columns: 35px 1fr 1.3fr 25px; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.25); }
+.lesson-list a:first-child { border-top: 1px solid rgba(255,255,255,.25); }
+.lesson-no { color: var(--accent); font: 11px var(--sans); }
+.lesson-name { font: 32px var(--hand); }
+.lesson-desc { color: var(--muted); font: 11px var(--sans); }
+.arrow { text-align: right; color: var(--accent); }
+.lesson-list a:hover .lesson-name { color: var(--accent); }
+
+.lesson-layout { display: grid; grid-template-columns: 220px 1fr; gap: 7%; min-height: 76vh; padding: 55px var(--gap) 75px; }
+.lesson-nav { align-self: start; display: flex; flex-direction: column; gap: 8px; }
+.lesson-nav .eyebrow { margin-bottom: 12px; }
+.lesson-nav a { display: flex; gap: 13px; padding: 9px; color: var(--muted); font: 27px var(--hand); }
+.lesson-nav a span { padding-top: 8px; color: var(--accent); }
+.lesson-nav a:hover, .lesson-nav a.active { color: var(--accent); background: rgba(0,0,0,.2); }
+.lesson-copy { max-width: 680px; }
+.lesson-copy h1 { font-size: clamp(75px, 10vw, 125px); }
+.dek { margin: 18px 0 24px; font: clamp(20px, 2.5vw, 28px)/1.35 var(--serif); }
+.lesson-text { max-width: 590px; padding: 22px; background: rgba(0,0,0,.25); font: 14px/1.8 var(--sans); }
+.lesson-text h2 { margin: 0 0 12px; font: 30px/1.1 var(--serif); }
+.lesson-text h2 em { color: var(--accent); }
+.lesson-text p { margin: 0 0 12px; }
+.exercise { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.25); }
+.exercise > span { color: var(--accent); }
+.exercise ul { padding-left: 18px; }
+.lesson-pagination { display: flex; justify-content: space-between; gap: 20px; margin-top: 25px; }
+.lesson-pagination a { padding-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,.3); }
+footer { display: flex; justify-content: space-between; padding: 20px var(--gap); color: var(--muted); border-top: 1px solid rgba(255,255,255,.25); }
+
+@media (max-width: 700px) {
+  .topbar { padding: 18px 22px; }
+  .site-name span { display: none; }
+  .home-hero { min-height: 65vh; padding: 40px 22px; }
+  h1 { font-size: 90px; }
+  .hero-bottom { align-items: start; }
+  .round-link { width: 78px; height: 78px; font-size: 9px; }
+  .lesson-index { grid-template-columns: 1fr; gap: 28px; padding: 40px 22px; }
+  .lesson-list a { grid-template-columns: 28px 1fr 20px; }
+  .lesson-desc { display: none; }
+  .lesson-layout { grid-template-columns: 1fr; gap: 25px; padding: 35px 22px 55px; }
+  .lesson-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .lesson-nav .eyebrow { grid-column: 1 / -1; }
+  .lesson-nav a { display: block; padding: 8px 5px; font-size: 21px; }
+  .lesson-nav a span { display: block; padding: 0; }
+  .lesson-copy h1 { font-size: 90px; }
+  .lesson-text { padding: 18px; }
+  footer { padding: 18px 22px; }
+}
